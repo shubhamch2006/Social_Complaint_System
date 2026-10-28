@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Report community problems and track their progress with CivicConnect." />
+  <title>CivicConnect — Public Complaint Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="CivicConnect home">
+      <span class="brand-icon">✦</span><span>Civic<span class="brand-accent">Connect</span></span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-section="homeSection">Overview</button>
+      <button class="nav-link" data-section="complaintsSection">Track complaints</button>
+      <button class="nav-link" data-section="authoritySection">Authority desk</button>
+    </nav>
+    <button class="header-cta" id="headerReportBtn"><span>＋</span> Report an issue</button>
+  </header>
+
+  <main>
+    <section id="homeSection" class="section">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-badge"><span class="live-dot"></span> YOUR VOICE. YOUR COMMUNITY.</div>
+          <h1>Let’s make our<br /><span>neighbourhood better.</span></h1>
+          <p>See a problem in your community? Report it, follow its progress, and help the right people take action.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="heroReportBtn">Report a problem <span>↗</span></button>
+            <button class="btn btn-outline" id="heroTrackBtn">Track a complaint <span>→</span></button>
+          </div>
+          <div class="trust-note"><span class="trust-check">✓</span> Every report gets a unique reference ID.</div>
+        </div>
+        <div class="hero-visual" aria-label="Illustration of a clean, safe neighbourhood">
+          <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+          <div class="hill hill-back"></div><div class="hill hill-front"></div>
+          <div class="road"></div><div class="sidewalk"></div>
+          <div class="house house-one"><div class="roof"></div><div class="house-body"><div class="window"></div><div class="door"></div></div></div>
+          <div class="house house-two"><div class="roof"></div><div class="house-body"><div class="window"></div><div class="door"></div></div></div>
+          <div class="tree tree-one"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+          <div class="tree tree-two"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+          <div class="pin pin-one">✓</div><div class="pin pin-two">!</div>
+          <div class="visual-caption"><span class="caption-icon">⌖</span><div><strong>A better place to live</strong><small>Starts with one report</small></div></div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-icon icon-blue">▤</div><div><p>Total reports</p><strong id="totalReports">0</strong><small>Submitted in this portal</small></div></article>
+        <article class="stat-card"><div class="stat-icon icon-amber">◷</div><div><p>In progress</p><strong id="progressReports">0</strong><small>Being reviewed or resolved</small></div></article>
+        <article class="stat-card"><div class="stat-icon icon-green">✓</div><div><p>Resolved</p><strong id="resolvedReports">0</strong><small>Marked as fixed</small></div></article>
+        <article class="stat-card"><div class="stat-icon icon-purple">⌖</div><div><p>Issue categories</p><strong>8+</strong><small>Community concerns</small></div></article>
+      </div>
+
+      <section class="content-section">
+        <div class="section-heading"><div><span class="eyebrow">COMMUNITY FIRST</span><h2>What can you report?</h2><p>Tell us about public issues that affect safety, cleanliness, or daily life.</p></div><button class="subtle-link" id="categoriesReportBtn">Report an issue <span>↗</span></button></div>
+        <div class="category-grid">
+          <button class="category-card" data-category="Roads & Potholes"><span class="category-emoji bg-orange">🚧</span><strong>Roads & potholes</strong><small>Damaged roads, open manholes</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Garbage & Sanitation"><span class="category-emoji bg-green">♻️</span><strong>Garbage & sanitation</strong><small>Overflowing bins, litter, drainage</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Streetlights"><span class="category-emoji bg-yellow">💡</span><strong>Streetlights</strong><small>Broken lights, dark streets</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Public Safety"><span class="category-emoji bg-red">🛡️</span><strong>Public safety</strong><small>Hazards and unsafe public areas</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Water Supply"><span class="category-emoji bg-blue">💧</span><strong>Water supply</strong><small>Leaks, waterlogging, supply issues</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Noise Disturbance"><span class="category-emoji bg-purple">🔊</span><strong>Noise disturbance</strong><small>Persistent disruptive noise</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Public Property"><span class="category-emoji bg-teal">🏙️</span><strong>Public property</strong><small>Damaged signs, benches, parks</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Other"><span class="category-emoji bg-gray">✦</span><strong>Other concern</strong><small>Anything affecting the community</small><span class="card-arrow">↗</span></button>
+        </div>
+      </section>
+
+      <section class="how-section">
+        <div class="section-heading"><div><span class="eyebrow">SIMPLE. TRANSPARENT. LOCAL.</span><h2>How it works</h2></div></div>
+        <div class="steps-grid">
+          <div class="step-card"><span class="step-number">01</span><div class="step-illustration">📝</div><h3>Report the issue</h3><p>Share the category, location, and details so others can understand the problem.</p></div>
+          <div class="step-card"><span class="step-number">02</span><div class="step-illustration">🔎</div><h3>Track progress</h3><p>Use your reference ID to check the latest status and authority updates.</p></div>
+          <div class="step-card"><span class="step-number">03</span><div class="step-illustration">🤝</div><h3>Community improves</h3><p>Authorities can review reports, prioritize work, and record resolution notes.</p></div>
+        </div>
+      </section>
+    </section>
+
+    <section id="complaintsSection" class="section hidden">
+      <div class="page-banner"><div><span class="eyebrow">TRANSPARENCY & FOLLOW-UP</span><h1>Track complaints</h1><p>Look up your report using its reference ID, or browse recent reports in this demo.</p></div><div class="banner-symbol">⌕</div></div>
+      <div class="lookup-panel">
+        <label for="trackInput">Complaint reference ID</label>
+        <div class="lookup-row"><input id="trackInput" placeholder="e.g. CC-20261014-1234" /><button class="btn btn-primary" id="trackBtn">Find complaint →</button></div>
+        <p class="helper-text">Your reference ID is shown after you submit a complaint.</p>
+        <div id="trackResult" class="track-result hidden"></div>
+      </div>
+      <div class="list-heading"><div><h2>Recent community reports</h2><p>Demo records are visible to help you explore the interface.</p></div><select id="publicStatusFilter" aria-label="Filter complaints by status"><option value="all">All statuses</option><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Rejected</option></select></div>
+      <div id="publicComplaintList" class="complaint-list"></div>
+      <div id="publicEmpty" class="empty-panel hidden"><span>⌕</span><strong>No complaints found</strong><p>Try another status or submit a new report.</p></div>
+    </section>
+
+    <section id="authoritySection" class="section hidden">
+      <div class="page-banner authority-banner"><div><span class="eyebrow">DEMO ADMIN WORKSPACE</span><h1>Authority desk</h1><p>Review incoming complaints, prioritize issues, and keep citizens updated.</p></div><div class="banner-symbol">⚙</div></div>
+      <div class="demo-warning"><span>ⓘ</span><div><strong>Demonstration mode</strong><p>This front-end demo has no secure authentication or central database. Status changes are saved only in this browser.</p></div></div>
+      <div class="authority-stats" id="authorityStats"></div>
+      <div class="authority-toolbar"><div><h2>Complaint management</h2><p>Update a report’s status and add an authority note.</p></div><div class="toolbar-filters"><input id="adminSearch" placeholder="Search ID, title, or location..." /><select id="adminStatusFilter"><option value="all">All statuses</option><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Rejected</option></select></div></div>
+      <div id="authorityList" class="authority-list"></div>
+      <div id="authorityEmpty" class="empty-panel hidden"><span>✓</span><strong>No matching complaints</strong><p>New submissions will appear here.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand"><span class="brand-icon">✦</span><strong>CivicConnect</strong></div><p>A community-focused reporting demo. For emergencies or immediate danger, contact local emergency services directly.</p><span class="footer-copy">© 2026 CivicConnect • Student project</span></footer>
+
+  <dialog id="reportModal" class="modal">
+    <form id="reportForm">
+      <div class="modal-top"><div><span class="eyebrow">MAKE YOUR VOICE HEARD</span><h2>Report a community issue</h2><p>Provide clear details so the issue can be understood.</p></div><button type="button" class="close-btn" id="closeReport" aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <div class="field-group full"><label for="reportTitle">Issue title <span>*</span></label><input id="reportTitle" required maxlength="90" placeholder="e.g. Streetlight not working near the park" /></div>
+        <div class="field-group"><label for="reportCategory">Category <span>*</span></label><select id="reportCategory" required><option value="">Choose category</option></select></div>
+        <div class="field-group"><label for="reportPriority">Priority <span>*</span></label><select id="reportPriority" required><option value="Normal">Normal</option><option value="High">High</option><option value="Urgent">Urgent</option></select></div>
+        <div class="field-group full"><label for="reportLocation">Location / landmark <span>*</span></label><input id="reportLocation" required maxlength="150" placeholder="Street, area, nearby landmark, city" /></div>
+        <div class="field-group full"><label for="reportDescription">Describe the issue <span>*</span></label><textarea id="reportDescription" required rows="4" maxlength="1200" placeholder="What happened? When did you notice it? How does it affect the community?"></textarea><small>Do not include sensitive personal information or accusations you cannot substantiate.</small></div>
+        <div class="field-group"><label for="reportName">Your name (optional)</label><input id="reportName" maxlength="80" placeholder="Name or leave blank" /></div>
+        <div class="field-group"><label for="reportContact">Contact (optional)</label><input id="reportContact" maxlength="100" placeholder="Email or phone" /></div>
+      </div>
+      <div class="privacy-note"><span>🔒</span><p>Only share contact details if you want to be contacted. This demo stores reports in your browser and does not send them to a real authority.</p></div>
+      <div class="modal-actions"><button type="button" class="btn btn-light" id="cancelReport">Cancel</button><button type="submit" class="btn btn-primary">Submit report <span>↗</span></button></div>
+    </form>
+  </dialog>
+  <dialog id="successModal" class="modal success-modal">
+    <button type="button" class="close-btn success-close" id="closeSuccess" aria-label="Close">×</button>
+    <div class="success-mark">✓</div><span class="eyebrow">REPORT SAVED IN THIS DEMO</span><h2>Thank you for speaking up.</h2><p>Your complaint has been recorded locally. Keep this reference ID to track it later.</p>
+    <div class="reference-box"><span>YOUR REFERENCE ID</span><strong id="newReference">CC-00000000-0000</strong><button id="copyReference" type="button">Copy ID</button></div>
+    <div class="modal-actions"><button class="btn btn-light" id="successDone">Done</button><button class="btn btn-primary" id="successTrack">Track complaint →</button></div>
+  </dialog>
+  <dialog id="updateModal" class="modal">
+    <form id="updateForm">
+      <div class="modal-top"><div><span class="eyebrow">AUTHORITY UPDATE</span><h2>Update complaint</h2><p id="updateComplaintTitle"></p></div><button type="button" class="close-btn" id="closeUpdate" aria-label="Close">×</button></div>
+      <input type="hidden" id="updateComplaintId" />
+      <div class="field-group"><label for="updateStatus">Status</label><select id="updateStatus"><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Rejected</option></select></div>
+      <div class="field-group"><label for="updateNote">Public update / resolution note</label><textarea id="updateNote" rows="4" maxlength="800" placeholder="Explain what has been checked or what action was taken..."></textarea></div>
+      <div class="modal-actions"><button type="button" class="btn btn-light" id="cancelUpdate">Cancel</button><button type="submit" class="btn btn-primary">Save update</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
